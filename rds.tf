@@ -54,6 +54,8 @@ resource "aws_db_instance" "mydb" {
   db_subnet_group_name   = aws_db_subnet_group.example.id
   parameter_group_name   = aws_db_parameter_group.db_param.name
   multi_az               = false
+  storage_encrypted = true
+  kms_key_id = aws_kms_key.rds_key.arn
   tags = {
     "Name" = "CSYE-6225"
   }
